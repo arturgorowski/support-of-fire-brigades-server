@@ -1,0 +1,42 @@
+{
+  "name": "fireStations",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "ObjectId"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "fireTrucks": {
+      "type": "embedsMany",
+      "model": "fireTrucks",
+      "options": {
+        "forceId": true
+      }
+    },
+    "fireStationEquipments": {
+      "type": "embedsMany",
+      "model": "fireStationEquipments",
+      "options": {
+        "forceId": true
+      }
+    },
+    "firefighters": {
+      "type": "embedsMany",
+      "model": "firefighters",
+      "options": {
+        "forceId": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

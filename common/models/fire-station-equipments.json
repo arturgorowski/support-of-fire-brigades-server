@@ -1,0 +1,34 @@
+{
+  "name": "fireStationEquipments",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "producent": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,24 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "relations": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "relations",
+    "name": "relations",
+    "useNewUrlParser": true,
+    "connector": "mongodb",
+    "allowExtendedOperators": true
+  },
+  "supportOfFireBrigades": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "SupportOfFireBrigades",
+    "name": "supportOfFireBrigades",
+    "useNewUrlParser": true,
+    "connector": "mongodb",
+    "allowExtendedOperators": true
+  }
+}
