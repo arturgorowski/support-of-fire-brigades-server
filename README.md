@@ -1,5 +1,5 @@
 # Support of fire brigades server
-Authors: Artur Górowski, Krystian Lisowski
+Authors: Artur Górowski
 
 
 ## Installation
