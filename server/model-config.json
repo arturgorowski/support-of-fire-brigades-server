@@ -50,5 +50,17 @@
   "fireStationEquipments": {
     "dataSource": "supportOfFireBrigades",
     "public": true
+  },
+  "interventions": {
+    "dataSource": "supportOfFireBrigades",
+    "public": true
+  },
+  "firefightersOnAction": {
+    "dataSource": "supportOfFireBrigades",
+    "public": true
+  },
+  "address": {
+    "dataSource": "supportOfFireBrigades",
+    "public": true
   }
 }

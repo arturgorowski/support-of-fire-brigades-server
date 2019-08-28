@@ -1,0 +1,41 @@
+{
+  "name": "interventions",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "timeOfDeparture": {
+      "type": "string"
+    },
+    "arrivalTime": {
+      "type": "string"
+    }
+  },
+  "validations": [], 
+  "relations": {
+    "firefightersOnActions": {
+      "type": "embedsMany",
+      "model": "firefightersOnAction",
+      "options": {
+        "forceId": true
+      }
+    },
+    "address": {
+      "type": "embedsOne",
+      "model": "address",
+      "options": {
+        "forceId": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
