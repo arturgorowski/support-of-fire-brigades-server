@@ -1,5 +1,5 @@
 {
-  "name": "fireTrucks",
+  "name": "fireTruckEquipments",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -11,26 +11,27 @@
       "id": true,
       "defaultFn": "uuid"
     },
+    "name": {
+      "type": "string"
+    },
+    "producent": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
     "type": {
       "type": "string"
     },
-    "waterCapacity": {
+    "quantity": {
       "type": "string"
     },
-    "pumpCapacity": {
+    "place": {
       "type": "string"
     }
   },
   "validations": [],
-  "relations": {
-    "fireTruckEquipments": {
-      "type": "embedsMany",
-      "model": "fireTruckEquipments",
-      "options": {
-        "forceId": true
-      }
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }

@@ -1,0 +1,35 @@
+{
+  "name": "firefighter",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "mongodb": {
+      "allowExtendedOperators": true
+    }
+  },
+  "ownerRelations": true,
+  "hidden": [],
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "roles": {
+      "type": "hasMany",
+      "model": "Role",
+      "foreignKey": "principalId",
+      "through": "RoleMapping"
+    },
+    "accessTokens": {
+      "type": "hasMany",
+      "model": "AccessToken",
+      "foreignKey": "userId"
+    },
+    "fireStation": {
+      "type": "hasMany",
+      "model": "fireStations",
+      "foreignKey": "fireStationId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

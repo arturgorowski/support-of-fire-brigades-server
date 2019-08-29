@@ -14,26 +14,32 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "db",
+    "public": false
   },
   "AccessToken": {
     "dataSource": "db",
-    "public": false
+    "public": false,
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
   },
   "ACL": {
     "dataSource": "db",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "supportOfFireBrigades",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
-    "public": false
+    "dataSource": "supportOfFireBrigades",
+    "public": true
   },
   "fireStations": {
     "dataSource": "supportOfFireBrigades",
@@ -41,25 +47,33 @@
   },
   "fireTrucks": {
     "dataSource": "supportOfFireBrigades",
-    "public": true
+    "public": false
   },
   "firefighters": {
     "dataSource": "supportOfFireBrigades",
-    "public": true
+    "public": false
   },
   "fireStationEquipments": {
     "dataSource": "supportOfFireBrigades",
-    "public": true
+    "public": false
   },
   "interventions": {
     "dataSource": "supportOfFireBrigades",
-    "public": true
+    "public": false
   },
   "firefightersOnAction": {
     "dataSource": "supportOfFireBrigades",
-    "public": true
+    "public": false
   },
   "address": {
+    "dataSource": "supportOfFireBrigades",
+    "public": false
+  },
+  "fireTruckEquipments": {
+    "dataSource": "supportOfFireBrigades",
+    "public": false
+  },
+  "firefighter": {
     "dataSource": "supportOfFireBrigades",
     "public": true
   }

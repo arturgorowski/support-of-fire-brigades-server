@@ -19,7 +19,7 @@
       "type": "string"
     }
   },
-  "validations": [], 
+  "validations": [],
   "relations": {
     "firefightersOnActions": {
       "type": "embedsMany",
@@ -34,6 +34,11 @@
       "options": {
         "forceId": true
       }
+    },
+    "fireStations": {
+      "type": "belongsTo",
+      "model": "fireStations",
+      "foreignKey": ""
     }
   },
   "acls": [],
