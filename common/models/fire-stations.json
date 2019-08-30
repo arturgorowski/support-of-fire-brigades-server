@@ -30,11 +30,9 @@
       }
     },
     "firefighters": {
-      "type": "embedsMany",
-      "model": "firefighters",
-      "options": {
-        "forceId": true
-      }
+      "type": "hasMany",
+      "model": "firefighter",
+      "foreignKey": "fireStationId"
     },
     "interventions": {
       "type": "hasMany",
@@ -56,6 +54,21 @@
       "accessType": "*",
       "principalType": "ROLE",
       "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": [
+        "logout"
+      ]
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "PrezesOSP",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "strazak",
       "permission": "ALLOW"
     }
   ],

@@ -10,7 +10,20 @@
   },
   "ownerRelations": true,
   "hidden": [],
-  "properties": {},
+  "properties": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "function": {
+      "type": "string"
+    },
+    "age": {
+      "type": "string"
+    }
+  },
   "validations": [],
   "relations": {
     "roles": {
@@ -25,11 +38,30 @@
       "foreignKey": "userId"
     },
     "fireStation": {
-      "type": "hasMany",
+      "type": "belongsTo",
       "model": "fireStations",
       "foreignKey": "fireStationId"
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }

@@ -39,7 +39,7 @@
   },
   "Role": {
     "dataSource": "supportOfFireBrigades",
-    "public": true
+    "public": false
   },
   "fireStations": {
     "dataSource": "supportOfFireBrigades",
