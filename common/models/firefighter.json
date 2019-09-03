@@ -36,11 +36,6 @@
       "type": "hasMany",
       "model": "AccessToken",
       "foreignKey": "userId"
-    },
-    "fireStation": {
-      "type": "belongsTo",
-      "model": "fireStations",
-      "foreignKey": "fireStationId"
     }
   },
   "acls": [
@@ -53,13 +48,7 @@
     {
       "accessType": "*",
       "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "admin",
+      "principalId": "prezesOSP",
       "permission": "ALLOW"
     }
   ],

@@ -45,15 +45,11 @@
     "dataSource": "supportOfFireBrigades",
     "public": true
   },
-  "fireTrucks": {
+  "fireTruck": {
     "dataSource": "supportOfFireBrigades",
     "public": false
   },
-  "firefighters": {
-    "dataSource": "supportOfFireBrigades",
-    "public": false
-  },
-  "fireStationEquipments": {
+  "fireStationEquipment": {
     "dataSource": "supportOfFireBrigades",
     "public": false
   },
@@ -69,7 +65,7 @@
     "dataSource": "supportOfFireBrigades",
     "public": false
   },
-  "fireTruckEquipments": {
+  "fireTruckEquipment": {
     "dataSource": "supportOfFireBrigades",
     "public": false
   },

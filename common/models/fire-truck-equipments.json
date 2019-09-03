@@ -1,5 +1,5 @@
 {
-  "name": "fireTruckEquipments",
+  "name": "fireTruckEquipment",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {

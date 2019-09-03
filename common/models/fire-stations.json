@@ -17,22 +17,26 @@
   "relations": {
     "fireTrucks": {
       "type": "embedsMany",
-      "model": "fireTrucks",
+      "model": "fireTruck",
       "options": {
         "forceId": true
       }
     },
     "fireStationEquipments": {
       "type": "embedsMany",
-      "model": "fireStationEquipments",
+      "model": "fireStationEquipment",
       "options": {
         "forceId": true
       }
     },
     "firefighters": {
-      "type": "hasMany",
+      "type": "referencesMany",
       "model": "firefighter",
-      "foreignKey": "fireStationId"
+      "foreignKey": "_id",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
     },
     "interventions": {
       "type": "hasMany",
@@ -53,22 +57,7 @@
     {
       "accessType": "*",
       "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW",
-      "property": [
-        "logout"
-      ]
-    },
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "PrezesOSP",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "READ",
-      "principalType": "ROLE",
-      "principalId": "strazak",
+      "principalId": "prezesOSP",
       "permission": "ALLOW"
     }
   ],

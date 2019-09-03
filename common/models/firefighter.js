@@ -18,28 +18,23 @@ module.exports = function (Firefighter) {
         // if new user we have to create roles
         if (ctx.isNewInstance) {
 
-            const Firefighter = app.models.Firefighter;
-
             let roleName = "", promises = [];
             let Role = app.models.Role;
             let RoleMapping = app.models.RoleMapping;
 
             // TODO sprawdzenie kto jest zalogowany, jak prezes, to przy tworzeniu nowych uzytkowników dodaje userów z ROLĄ strazak
-            let personalSettings//, isPrezesOSPLogged = ctx.options.accessToken && (ctx.options.accessToken.authorizedRoles.children[0] === true), promiseBuilder = [];
+            let personalSettings, isPrezesOSPLogged = ctx.options.authorizedRoles.prezesOSP;
 
-            console.log("ctx.options.accessToken>>>>", ctx.options.accessToken.authorizedRoles)
-            console.log("ctx.options.accessToken>>>>", ctx.options.accessToken)
-            console.log("ctx.options>>>>", ctx.options)
-            if (ctx.instance.role === "prezesOSP" && isPrezesOSPLogged) {
-  
-              roleName = "strazak";
-              personalSettings = {
-                role: roleName,
-                emailVerified: false
-              };
-  
+            if (isPrezesOSPLogged) {
+
+                roleName = "strazak";
+                personalSettings = {
+                    role: roleName,
+                    emailVerified: false
+                };
+
             } else {
-  
+
                 roleName = "prezesOSP";
                 personalSettings = {
                     role: roleName,
@@ -51,11 +46,11 @@ module.exports = function (Firefighter) {
 
                 return model;
 
-            }).catch(function (err) {                // ...
+            }).catch(function (err) {
+                // ...
                 console.error(">>> ERR :: error when registerig user", err);
                 return err;
             });
-
 
             // --------------------------- CREATE ROLES ---------------------------
 
