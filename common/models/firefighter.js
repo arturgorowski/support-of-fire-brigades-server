@@ -3,7 +3,6 @@ module.exports = function (Firefighter) {
     'use strict';
 
     const app = require("../../server/server");
-    const path = require("path");
     //const ObjectID = app.dataSources.mongo.ObjectID;
 
 

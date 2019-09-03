@@ -32,9 +32,8 @@
     "firefighters": {
       "type": "referencesMany",
       "model": "firefighter",
-      "foreignKey": "_id",
+      "foreignKey": "firefighterId",
       "options": {
-        "validate": true,
         "forceId": false
       }
     },

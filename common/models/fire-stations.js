@@ -2,8 +2,6 @@
 
 module.exports = function (Firestations) {
 
-
-
     // Firestations.beforeRemote("findById", function (ctx, instance, next) {
 
     //     //@todo check logged user access
