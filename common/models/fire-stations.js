@@ -20,6 +20,9 @@ module.exports = function (Firestations) {
 
     // })
 
+
+    // --------------------------- OBSERVERS ---------------------------
+
     Firestations.observe("after save", function (ctx, next) {
 
         if (ctx.isNewInstance) {
@@ -36,7 +39,7 @@ module.exports = function (Firestations) {
             ctx.instance.updateAttributes(personalSettings).then(function (model) {
                 console.log("success")
                 return model;
-                
+
             }).catch(function (err) {
                 console.error(">>> ERR :: error when creating fire stations", err);
                 //return err;
@@ -46,6 +49,85 @@ module.exports = function (Firestations) {
         }
         return next();
 
+    });
+
+
+    // --------------------------- METHODS ---------------------------
+
+    /**
+     *
+     * @param {string} id - fire stations id
+     * @param {string} fk - fire trucks foreign key
+     * @param {object} data - data object
+     * @param {Function(Error)} callback
+     */
+    Firestations.addFireTruckEquipments = function (id, fk, data, req,callback) {
+        
+
+        //Firestations.updateAll({'_id': id}, {data})
+        Firestations.findById(id).then(station =>{
+
+                if (station){
+
+                    // const trucks = station.fireTrucks();
+                    // const foundTruck = trucks.find(item=> item.id === fk);
+
+                    const foundTruck = station.fireTrucks.findById(fk);
+
+                    if (foundTruck){
+                        const promise = foundTruck.fireTruckEquipments.create(data,function(err, _res) {
+                            if(err){
+                              console.log(err);
+                            }
+                            //DOES NOT INHERIT MODEL CLASS LIKE HASMANY ETC.
+                            console.log(_res.itemList);
+                          });
+                        //equipment.push(data);    
+                        
+                        // return promise.then(saved=>{
+                        //         console.log("saved results", saved)
+                        //         callback(null,{status:true, saved})
+                        //     }) 
+
+                    }
+
+                    // return station.save().then(saved=>{
+                    //     console.log("saved results", saved)
+                    //     callback(null,{status:true, saved})
+                    // }) 
+
+
+                } else {
+                    callback(null,{status:false})
+                }
+
+
+        }).catch(err=>{
+            console.error(">>> ERR :: addFireTruckEquipments", err)
+            callback(err, null)
+        })
+
+
+        
+    };
+
+
+
+    // --------------------------- REMOTE DEFINITIONS ---------------------------
+
+    /**
+     *
+     *
+     */
+    Firestations.remoteMethod("addFireTruckEquipments", {
+        http: { path: "/:id/fireTrucks/:fk/fireTruckEquipments", verb: "post" },
+        accepts: [
+            { arg: "id", required: true, type: "string", source: "path", description: "fire stations id" },
+            { arg: "fk", required: true, type: "string", source: "path", description: "klucz obcy dla fire trucks" },
+            { arg: "data", type: "object", http: { source: "body" } }, { arg: "req", type: "object", http: { source: "req" } }
+        ],
+        returns: [{ arg: "data", type: "any", description: "FireTruckEquipment added succesfull", root: true }],
+        description: "Tworzy nową instancję w elemencie FireTruckEquipments tego modelu."
     });
 
 };

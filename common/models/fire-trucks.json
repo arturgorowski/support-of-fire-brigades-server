@@ -27,7 +27,7 @@
       "type": "embedsMany",
       "model": "fireTruckEquipments",
       "options": {
-        "forceId": true
+        "forceId": false
       }
     }
   },

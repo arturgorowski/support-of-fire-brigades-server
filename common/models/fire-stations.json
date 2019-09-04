@@ -6,14 +6,14 @@
     "validateUpsert": true
   },
   "properties": {
-    "id": {
-      "type": "ObjectId"
-    },
     "name": {
       "type": "string"
     }
   },
   "validations": [],
+  "scope": {
+    "include": "fireTrucks"
+  },
   "relations": {
     "fireTrucks": {
       "type": "embedsMany",
@@ -27,14 +27,6 @@
       "model": "fireStationEquipment",
       "options": {
         "forceId": true
-      }
-    },
-    "firefighters": {
-      "type": "referencesMany",
-      "model": "firefighter",
-      "foreignKey": "firefighterId",
-      "options": {
-        "forceId": false
       }
     },
     "interventions": {
@@ -60,5 +52,44 @@
       "permission": "ALLOW"
     }
   ],
-  "methods": {}
+  "methods": {
+    "updateFireTruckEquipments": {
+      "accepts": [
+        {
+          "arg": "id",
+          "type": "string",
+          "required": false,
+          "description": "",
+          "http": {
+            "source": "form"
+          }
+        },
+        {
+          "arg": "fk",
+          "type": "string",
+          "required": false,
+          "description": "",
+          "http": {
+            "source": "form"
+          }
+        }
+      ],
+      "returns": [],
+      "description": "",
+      "http": [
+        {
+          "path": "/api/fireStations",
+          "verb": "post"
+        },
+        {
+          "path": "fireTrucks",
+          "verb": "post"
+        },
+        {
+          "path": "fireTruckEquipments",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }

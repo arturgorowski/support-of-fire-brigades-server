@@ -14,11 +14,11 @@
     ]
   },
   "User": {
-    "dataSource": "db",
+    "dataSource": "supportOfFireBrigades",
     "public": false
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "supportOfFireBrigades",
     "public": false,
     "user": {
       "type": "belongsTo",
@@ -27,7 +27,7 @@
     }
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "supportOfFireBrigades",
     "public": false
   },
   "RoleMapping": {
@@ -65,7 +65,7 @@
     "dataSource": "supportOfFireBrigades",
     "public": false
   },
-  "fireTruckEquipment": {
+  "fireTruckEquipments": {
     "dataSource": "supportOfFireBrigades",
     "public": false
   },
