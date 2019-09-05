@@ -11,6 +11,12 @@
       "id": true,
       "defaultFn": "uuid"
     },
+    "name": {
+      "type": "string"
+    },
+    "operationalNumber": {
+      "type": "string"
+    },
     "type": {
       "type": "string"
     },
