@@ -17,7 +17,7 @@ module.exports = function (Firefighter) {
     // if new user we have to create roles
     if (ctx.isNewInstance) {
 
-      let roleName = "", promises = [];
+      let roleName = "";
       let Role = app.models.Role;
       let RoleMapping = app.models.RoleMapping;
 
@@ -48,7 +48,7 @@ module.exports = function (Firefighter) {
 
       }).catch(function (err) {
         // ...
-        console.error(">>> ERR :: error when registerig user", err);
+        console.error(">>> ERR :: error when registering user", err);
         return err;
       });
 
@@ -78,4 +78,6 @@ module.exports = function (Firefighter) {
       return next();
     }
   });
+
+
 };
