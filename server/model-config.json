@@ -72,5 +72,9 @@
   "firefighter": {
     "dataSource": "supportOfFireBrigades",
     "public": true
+  },
+  "locationHistory": {
+    "dataSource": "supportOfFireBrigades",
+    "public": true
   }
 }

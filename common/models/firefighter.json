@@ -22,6 +22,9 @@
     },
     "age": {
       "type": "string"
+    },
+    "location": {
+      "type": "array"
     }
   },
   "validations": [],
