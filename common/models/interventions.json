@@ -38,7 +38,7 @@
     "fireStations": {
       "type": "belongsTo",
       "model": "fireStations",
-      "foreignKey": ""
+      "foreignKey": "fireStationsId"
     }
   },
   "acls": [],

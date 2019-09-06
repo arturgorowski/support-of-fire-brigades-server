@@ -32,9 +32,18 @@
     "interventions": {
       "type": "hasMany",
       "model": "interventions",
-      "foreignKey": "fireStationId",
+      "foreignKey": "fireStationsId",
       "options": {
         "forceId": true
+      }
+    },
+    "firefighters": {
+      "type": "referencesMany",
+      "model": "firefighter",
+      "foreignKey": "firefighterId",
+      "options": {
+        "validate": true,
+        "forceId": false
       }
     }
   },
