@@ -6,9 +6,6 @@
     "validateUpsert": true
   },
   "properties": {
-    "id": {
-      "type": "ObjectId"
-    },
     "name": {
       "type": "string"
     }
@@ -17,21 +14,14 @@
   "relations": {
     "fireTrucks": {
       "type": "embedsMany",
-      "model": "fireTrucks",
+      "model": "fireTruck",
       "options": {
         "forceId": true
       }
     },
     "fireStationEquipments": {
       "type": "embedsMany",
-      "model": "fireStationEquipments",
-      "options": {
-        "forceId": true
-      }
-    },
-    "firefighters": {
-      "type": "embedsMany",
-      "model": "firefighters",
+      "model": "fireStationEquipment",
       "options": {
         "forceId": true
       }
@@ -39,7 +29,7 @@
     "interventions": {
       "type": "hasMany",
       "model": "interventions",
-      "foreignKey": "fireStationId",
+      "foreignKey": "fireStationsId",
       "options": {
         "forceId": true
       }
@@ -55,9 +45,48 @@
     {
       "accessType": "*",
       "principalType": "ROLE",
-      "principalId": "$authenticated",
+      "principalId": "prezesOSP",
       "permission": "ALLOW"
     }
   ],
-  "methods": {}
+  "methods": {
+    "updateFireTruckEquipments": {
+      "accepts": [
+        {
+          "arg": "id",
+          "type": "string",
+          "required": false,
+          "description": "",
+          "http": {
+            "source": "form"
+          }
+        },
+        {
+          "arg": "fk",
+          "type": "string",
+          "required": false,
+          "description": "",
+          "http": {
+            "source": "form"
+          }
+        }
+      ],
+      "returns": [],
+      "description": "",
+      "http": [
+        {
+          "path": "/api/fireStations",
+          "verb": "post"
+        },
+        {
+          "path": "fireTrucks",
+          "verb": "post"
+        },
+        {
+          "path": "fireTruckEquipments",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }

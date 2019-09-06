@@ -14,11 +14,11 @@
     ]
   },
   "User": {
-    "dataSource": "db",
+    "dataSource": "supportOfFireBrigades",
     "public": false
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "supportOfFireBrigades",
     "public": false,
     "user": {
       "type": "belongsTo",
@@ -27,7 +27,7 @@
     }
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "supportOfFireBrigades",
     "public": false
   },
   "RoleMapping": {
@@ -39,21 +39,17 @@
   },
   "Role": {
     "dataSource": "supportOfFireBrigades",
-    "public": true
+    "public": false
   },
   "fireStations": {
     "dataSource": "supportOfFireBrigades",
     "public": true
   },
-  "fireTrucks": {
+  "fireTruck": {
     "dataSource": "supportOfFireBrigades",
     "public": false
   },
-  "firefighters": {
-    "dataSource": "supportOfFireBrigades",
-    "public": false
-  },
-  "fireStationEquipments": {
+  "fireStationEquipment": {
     "dataSource": "supportOfFireBrigades",
     "public": false
   },
@@ -74,6 +70,10 @@
     "public": false
   },
   "firefighter": {
+    "dataSource": "supportOfFireBrigades",
+    "public": true
+  },
+  "locationHistory": {
     "dataSource": "supportOfFireBrigades",
     "public": true
   }

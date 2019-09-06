@@ -1,5 +1,5 @@
 {
-  "name": "fireTrucks",
+  "name": "fireTruck",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -10,6 +10,12 @@
       "type": "string",
       "id": true,
       "defaultFn": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "operationalNumber": {
+      "type": "string"
     },
     "type": {
       "type": "string"
@@ -27,7 +33,7 @@
       "type": "embedsMany",
       "model": "fireTruckEquipments",
       "options": {
-        "forceId": true
+        "forceId": false
       }
     }
   },

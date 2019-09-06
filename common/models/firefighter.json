@@ -10,7 +10,23 @@
   },
   "ownerRelations": true,
   "hidden": [],
-  "properties": {},
+  "properties": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "function": {
+      "type": "string"
+    },
+    "age": {
+      "type": "string"
+    },
+    "location": {
+      "type": "array"
+    }
+  },
   "validations": [],
   "relations": {
     "roles": {
@@ -23,13 +39,21 @@
       "type": "hasMany",
       "model": "AccessToken",
       "foreignKey": "userId"
-    },
-    "fireStation": {
-      "type": "hasMany",
-      "model": "fireStations",
-      "foreignKey": "fireStationId"
     }
   },
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "prezesOSP",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }
