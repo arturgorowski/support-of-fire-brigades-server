@@ -3,9 +3,11 @@ Authors: Artur Górowski
 
 
 ## Installation
-* `git clone -b hotfix/relations https://github.com/arturgorowski/support-of-fire-brigades-server.git`
+* `git clone https://github.com/arturgorowski/support-of-fire-brigades-server.git`
 * `cd support-of-fire-brigades-server`
 * `npm install`
-* `to run test: npm test`
 * `npm start`
 * `visit http://localhost:3000/explorer`
+
+
+* `to run test: npm test`
