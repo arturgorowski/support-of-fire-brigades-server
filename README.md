@@ -1,4 +1,4 @@
-# Support of fire brigades server
+# Support of fire brigades server (Sparcks)
 Authors: Artur Górowski
 
 
