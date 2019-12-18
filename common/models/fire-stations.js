@@ -98,30 +98,45 @@ module.exports = function (Firestations) {
    * @param req
    * @param callback
    */
-  Firestations.deleteFireTruckEquipments = function (id, fk, fireTruckEquipmentsFK, req, callback) {
+  Firestations.deleteFireTruckEquipments = function (id, fk, fireTruckEquipmentsFK, callback) {
 
     Firestations.findById(id, FireStations, function (err, FireStationsNode) {
 
-      FireStationsNode.fireTrucks.findById(fk, Firestations, function (err, FireTrucksNode) {
+      if (FireStationsNode !== null) {
+        FireStationsNode.fireTrucks.findById(fk, Firestations, function (err, FireTrucksNode) {
 
-        const equipments = FireTrucksNode.fireTruckEquipments();
-        console.log(equipments);
+          if (FireTrucksNode !== null) {
+            const equipments = FireTrucksNode.fireTruckEquipments();
+            //console.log(equipments);
 
-        equipments.forEach((equipment, index) => {
-          console.log(index, equipment.id);
+            equipments.forEach((equipment, index) => {
+              console.log(index, equipment.id);
 
-          if (equipment.id === fireTruckEquipmentsFK) {
-            equipments.splice(index, 1);
+              if (equipment.id === fireTruckEquipmentsFK) {
+                equipments.splice(index, 1);
 
-            return FireStationsNode.save().then(removed => {
-              console.log("equipment removed", removed);
-              callback(null, {status: true, removed});
+                console.log(equipment);
+
+                return FireStationsNode.save().then(removed => {
+                  console.log("equipment removed", removed);
+                  callback(null, {status: true, removed});
+                })
+              } else {
+                console.error(">>> ERR :: FireTruckEquipments ");
+                callback(null, {status: false, error: ">>> ERR :: Couldn't found FireTruckEquipments with that id"});
+              }
+
             })
+          } else {
+            console.error(">>> ERR :: FireTrucks ");
+            callback(null, {status: false, error: ">>> ERR :: Couldn't found FireTrucks with that fk"});
           }
 
         })
-
-      })
+      } else {
+        console.error(">>> ERR :: FireStations ");
+        callback(null, {status: false, error: ">>> ERR :: Couldn't found FireStations with that id"});
+      }
 
     })
 
