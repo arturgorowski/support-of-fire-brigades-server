@@ -4,6 +4,17 @@
     "connector": "memory"
   },
   "supportOfFireBrigades": {
+    "name": "supportOfFireBrigades",
+    "connector": "mongodb",
+    "url": "mongodb+srv://admin:admin@support-of-fire-brigades-l40wv.mongodb.net/SupportOfFireBrigades",
+    "host": "",
+    "port": 27017,
+    "user": "admin",
+    "password": "admin",
+    "database": "SupportOfFireBrigades",
+    "useNewUrlParser": true
+  },
+  "supportOfFireBrigadesLocal": {
     "host": "localhost",
     "port": 27017,
     "database": "SupportOfFireBrigades",
