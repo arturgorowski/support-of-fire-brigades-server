@@ -13,14 +13,5 @@
     "password": "admin",
     "database": "SupportOfFireBrigades",
     "useNewUrlParser": true
-  },
-  "supportOfFireBrigadesLocal": {
-    "host": "localhost",
-    "port": 27017,
-    "database": "SupportOfFireBrigades",
-    "name": "supportOfFireBrigades",
-    "useNewUrlParser": true,
-    "connector": "mongodb",
-    "allowExtendedOperators": true
   }
 }
