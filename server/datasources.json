@@ -12,6 +12,7 @@
     "user": "admin",
     "password": "admin",
     "database": "SupportOfFireBrigades",
-    "useNewUrlParser": true
+    "useNewUrlParser": true,
+    "useUnifiedTopology": true
   }
 }
