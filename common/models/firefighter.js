@@ -3,8 +3,6 @@ module.exports = function (Firefighter) {
   'use strict';
 
   const app = require("../../server/server");
-  //const ObjectID = app.dataSources.mongo.ObjectID;
-
 
   // --------------------------- OBSERVERS ---------------------------
   /**
@@ -86,19 +84,16 @@ module.exports = function (Firefighter) {
    * Wyszukiwanie strażaków należących do remizy o konkretnym id
    *
    * @param {string} id - fireStationId
-   * @params req
-   * @params callback
+   * @param callback
    */
   Firefighter.searchFirefighters = function (id, callback) {
 
-    // TODO zamienic stroing na ObjectId i wyszukac go w bazie, nastepnie zwrocic
-    // let fireStationId =
     //query the database for a single matching fireStation
-    Firefighter.find({where: {id: id}}, function (err, firefighters) {
-      console.log()
+    Firefighter.find({where: {fireStationId: id}}, function (err, firefighters) {
+      console.log("firefighter", firefighters);
 
-      //return only the location property of the dog
-      //callback(null, firefighters);
+      //return only the firefighter from the same OSP
+      callback(null, firefighters);
 
     });
   };
