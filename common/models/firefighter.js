@@ -90,7 +90,6 @@ module.exports = function (Firefighter) {
 
     //query the database for a single matching fireStation
     Firefighter.find({where: {fireStationId: id}}, function (err, firefighters) {
-      console.log("firefighter", firefighters);
 
       //return only the firefighter from the same OSP
       callback(null, firefighters);
