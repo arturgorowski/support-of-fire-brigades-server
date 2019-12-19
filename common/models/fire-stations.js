@@ -5,23 +5,23 @@ module.exports = function (Firestations) {
   const app = require('../../server/server');
   const FireStations = app.models.Firestations;
 
-  // Firestations.beforeRemote("findById", function (ctx, instance, next) {
-  //
-  //     //@todo check logged user access
-  //
-  //     const user = ctx.req.accessToken.user();
-  //
-  //     Firestations.findOne({ where: { id: ctx.args.id, "firefighters.email" : user.email} }).then(hasAccess=>{
-  //
-  //        if (hasAccess)     {
-  //            return next();
-  //        } else {
-  //            return next(new Error("USER_HAS_NO_ACCESS"));
-  //        }
-  //
-  //     })
-  //
-  // });
+  Firestations.beforeRemote("findById", function (ctx, instance, next) {
+
+      //@todo check logged user access
+
+      const user = ctx.req.accessToken.user();
+
+      Firestations.findOne({ where: { id: ctx.args.id, "firefighters.email" : user.email} }).then(hasAccess=>{
+
+         if (hasAccess)     {
+             return next();
+         } else {
+             return next(new Error("USER_HAS_NO_ACCESS"));
+         }
+
+      })
+
+  });
 
 
   // --------------------------- OBSERVERS ---------------------------

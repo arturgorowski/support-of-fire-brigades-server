@@ -80,4 +80,44 @@ module.exports = function (Firefighter) {
   });
 
 
+  // --------------------------- METHODS ---------------------------
+
+  /**
+   * Wyszukiwanie strażaków należących do remizy o konkretnym id
+   *
+   * @param {string} id - fireStationId
+   * @params req
+   * @params callback
+   */
+  Firefighter.searchFirefighters = function (id, callback) {
+
+    // TODO zamienic stroing na ObjectId i wyszukac go w bazie, nastepnie zwrocic
+    // let fireStationId =
+    //query the database for a single matching fireStation
+    Firefighter.find({where: {id: id}}, function (err, firefighters) {
+      console.log()
+
+      //return only the location property of the dog
+      //callback(null, firefighters);
+
+    });
+  };
+
+
+  // --------------------------- REMOTE DEFINITIONS ---------------------------
+
+  /**
+   *
+   * Wyszukiwanie strażaków należących do tej samej jednostki OSP
+   */
+  Firefighter.remoteMethod("searchFirefighters", {
+    http: {path: "/fireStation/:id", verb: "get"},
+    accepts: [
+      {arg: "id", required: true, type: "string", source: "path", description: "fireStationId"}
+    ],
+    returns: [{arg: "data", type: "any", description: "Firefighters from the same OSP", root: true}],
+    description: "Zwraca strażaków z tej samej jednostki."
+  });
+
+
 };
