@@ -16,6 +16,12 @@
     },
     "lastName": {
       "type": "string"
+    },
+    "function": {
+      "type": "string"
+    },
+    "age": {
+      "type": "string"
     }
   },
   "validations": [],

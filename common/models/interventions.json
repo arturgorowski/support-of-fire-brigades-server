@@ -7,7 +7,9 @@
   },
   "properties": {
     "id": {
-      "type": "string"
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuid"
     },
     "type": {
       "type": "string"
