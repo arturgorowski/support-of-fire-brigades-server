@@ -27,9 +27,8 @@
       }
     },
     "interventions": {
-      "type": "hasMany",
+      "type": "embedsMany",
       "model": "interventions",
-      "foreignKey": "fireStationsId",
       "options": {
         "forceId": true
       }
@@ -84,6 +83,10 @@
         },
         {
           "path": "fireTruckEquipments",
+          "verb": "post"
+        },
+        {
+          "path": "intervention",
           "verb": "post"
         }
       ]

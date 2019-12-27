@@ -34,11 +34,6 @@
       "options": {
         "forceId": true
       }
-    },
-    "fireStations": {
-      "type": "belongsTo",
-      "model": "fireStations",
-      "foreignKey": "fireStationsId"
     }
   },
   "acls": [],
