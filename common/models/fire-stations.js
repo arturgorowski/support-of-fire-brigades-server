@@ -7,19 +7,20 @@ module.exports = function (Firestations) {
 
   Firestations.beforeRemote("findById", function (ctx, instance, next) {
 
-      //@todo check logged user access
+    //@todo check logged user access
 
-      const user = ctx.req.accessToken.user();
+    const userId = ctx.req.accessToken.userId;
+    console.log("user id: ", ctx.req.accessToken.userId);
 
-      Firestations.findOne({ where: { id: ctx.args.id, "firefighters.email" : user.email} }).then(hasAccess=>{
+    Firestations.findOne({where: {id: ctx.args.id, ownerId: userId}}).then(hasAccess => {
 
-         if (hasAccess)     {
-             return next();
-         } else {
-             return next(new Error("USER_HAS_NO_ACCESS"));
-         }
+      if (hasAccess) {
+        return next();
+      } else {
+        return next(new Error("USER_HAS_NO_ACCESS"));
+      }
 
-      })
+    })
 
   });
 
