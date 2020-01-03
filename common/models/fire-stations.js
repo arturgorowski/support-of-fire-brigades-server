@@ -10,7 +10,7 @@ module.exports = function (Firestations) {
     //@todo check logged user access
 
     const userId = ctx.req.accessToken.userId;
-    console.log("user id: ", ctx.req.accessToken.userId);
+    // console.log("user id: ", ctx.req.accessToken.userId);
 
     Firestations.findOne({where: {id: ctx.args.id, ownerId: userId}}).then(hasAccess => {
 
