@@ -56,6 +56,12 @@
       "principalType": "ROLE",
       "principalId": "prezesOSP",
       "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "strazak",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}
