@@ -117,17 +117,14 @@ module.exports = function (Firestations) {
                 equipments.splice(index, 1);
 
                 console.log(equipment);
-
-                return FireStationsNode.save().then(removed => {
-                  console.log("equipment removed", removed);
-                  callback(null, {status: true, removed});
-                })
               } else {
                 console.error(">>> ERR :: FireTruckEquipments ");
-                callback(null, {status: false, error: ">>> ERR :: Couldn't found FireTruckEquipments with that id"});
               }
-
-            })
+            });
+            return FireStationsNode.save().then(removed => {
+              console.log("equipment removed", removed);
+              callback(null, {status: true, removed});
+            });
           } else {
             console.error(">>> ERR :: FireTrucks ");
             callback(null, {status: false, error: ">>> ERR :: Couldn't found FireTrucks with that fk"});
