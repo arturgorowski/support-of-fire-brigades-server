@@ -27,7 +27,7 @@
     "chai": "^4.2.0",
     "eslint": ">=4.18.2",
     "eslint-config-loopback": "^8.0.0",
-    "mocha": "^6.2.0",
+    "mocha": "^10.2.0",
     "supertest": "^4.0.2",
     "swagger-ui": "^3.24.3"
   },
